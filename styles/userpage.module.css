@@ -1,0 +1,47 @@
+.container {
+    margin-top: 20px;
+  }
+  
+  .table-responsive {
+    margin-top: 20px;
+  }
+  
+  .btn-primary,
+  .btn-danger {
+    padding: 5px 15px;
+  }
+  
+  .btn-success {
+    margin-top: 20px;
+  }
+  
+  .border-bottom {
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .table th,
+  .table td {
+    vertical-align: middle;
+  }
+  
+  .bg-info {
+    background-color: #17a2b8;
+  }
+  
+  .text-light {
+    color: #fff;
+  }
+  
+  .badge {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+  
+  .bg-success {
+    background-color: #28a745;
+  }
+  
+  .me-1 {
+    margin-right: 0.25rem;
+  }
+  
