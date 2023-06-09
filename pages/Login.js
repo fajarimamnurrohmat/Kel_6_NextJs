@@ -2,14 +2,30 @@ import { useState } from "react";
 import Head from "next/head";
 import Layout from "@/component/Layout";
 import styles from "@/styles/login.module.css";
+import axios from 'axios';
 
 const LoginForm = () => {
   const [user, setUser] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({ email: "", password: "" });
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Logika untuk memproses pengiriman formulir login
+
+    try {
+      const response = await axios.post('/api/login', {
+        email: user.email,
+        password: user.password,
+      });
+
+      const token = response.data.token;
+      // Simpan token ke penyimpanan (misalnya cookie atau localStorage)
+
+      // Redirect ke halaman setelah login berhasil
+      // Misalnya, gunakan router atau window.location.href
+    } catch (error) {
+      console.error(error);
+      // Tangani kesalahan login (misalnya menampilkan pesan kesalahan)
+    }
   };
 
   const handleChange = (event) => {

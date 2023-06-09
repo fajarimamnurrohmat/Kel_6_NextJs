@@ -2,6 +2,10 @@ import { useState } from 'react';
 import Layout from '@/component/Layout';
 import styles from '@/styles/signin.module.css'
 import Head from 'next/head';
+import connectDB from '@/mongoConfig'
+import User from './api/user'; 
+
+connectDB();
 
 const RegisterForm = () => {
   const [user, setUser] = useState({
@@ -13,10 +17,20 @@ const RegisterForm = () => {
 
   const [errors, setErrors] = useState({});
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add form submission logic here
+    const { name, email, password, password_confirm } = user;
+    const userData = { name, email, password };
+
+    try {
+      const savedUser = await User.create(userData);
+      console.log('User saved successfully:', savedUser);
+    } catch (error) {
+      console.error('Failed to save user:', error);
+    }
   };
+
+  
 
   return (
     <>
